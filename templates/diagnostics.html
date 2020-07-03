@@ -1,0 +1,50 @@
+{% extends "afterlogin.html" %}
+
+{% block title %}
+HMS| Diagnostics
+{% endblock %}
+
+{% block body %}
+<h5>{{message if message}}</h5>
+<h2>Diagnostics Available</h2>
+<table id ="t101" >
+    <tr>
+        <th>Diagnostics Name</th>
+        <th>Rate</th>
+    </tr>
+{% for diagnostic in diagnostics %}
+<tr>
+    <td>{{diagnostic.name}}</td>
+    <td>{{diagnostic.rate}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h2>Diagnostics Conducted</h2>
+<table id ="t101" >
+    <tr>
+        <th>Diagnostics Name</th>
+        <th>Patient ID</th>
+        <th>Rate</th>
+    </tr>
+{% for diagnosticdone in diagnosticsdone %}
+<tr>
+    <td>{{diagnosticdone.name}}</td>
+    <td>{{diagnosticdone.patientid}}</td>
+    <td>{{diagnosticdone.rate}}</td>
+</tr>
+{% endfor %}
+</table>
+<form class="navbar-form navbar-left" action="{{url_for('bill')}}" method ='POST'>
+    <div class="form-group">
+      <input type = "text" name ="puid" placeholder="Patient ID">
+      <select name ="name" >
+          {% for diagnostic in diagnostics %}
+          <option>{{diagnostic.name}}</option>
+          {% endfor %}
+      </select>
+      <input type = "submit" value = "Add">
+    </div>
+</form>
+
+{% endblock %}

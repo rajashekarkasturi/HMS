@@ -1,0 +1,59 @@
+{% extends "afterlogin.html" %}
+
+{% block title %}
+HMS | Allocate Medcines 
+{% endblock %}
+
+
+{% block body %}
+<h5>{{message if message}}</h5>
+<h2>Medicies Available</h2>
+<table id ="t101" >
+    <tr>
+        <th>Medicine ID</th>
+        <th>Medicine Name</th>
+        <th>Quantity</th>
+        <th>Rate</th>
+    </tr>
+{% for medicine in medicines %}
+<tr>
+    <td>{{medicine.medicineid}}</td>
+    <td>{{medicine.medicinename}}</td>
+    <td>{{medicine.quantity}}</td>
+    <td>{{medicine.rate}}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+<h2>Medicies Allocated</h2>
+<table id ="t101" >
+    <tr>
+        <th>Medicine Name</th>
+        <th>Patient ID</th>
+        <th>Quantity</th>
+        <th>Total</th>
+    </tr>
+{% for allocmedicine in allocMedicines %}
+<tr>
+    <td>{{allocmedicine.medicinename}}</td>
+    <td>{{allocmedicine.patient_id}}</td>
+    <td>{{allocmedicine.quantity}}</td>
+    <td>{{allocmedicine.total}}</td>
+</tr>
+{% endfor %}
+</table>
+<form class="navbar-form navbar-left" action="{{url_for('allocateMedicines')}}" method ='POST'>
+    <div class="form-group">
+      <input type = "text" name ="puid" placeholder="Patient ID">
+      <select name ="medicinename" >
+          {% for medicine in medicines %}
+          <option>{{medicine.medicinename}}</option>
+          {% endfor %}
+      </select>
+      <input type = "text" name ="quantity" placeholder="Quantity">
+      <input type = "submit" value = "Add">
+    </div>
+</form>
+{% endblock %}
+

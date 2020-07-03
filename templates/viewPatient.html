@@ -1,0 +1,31 @@
+{% extends "afterlogin.html" %}
+
+{% block title %}
+    HMS| Patients
+{% endblock %}
+
+{% block body %}
+    <h2>Patients</h2>
+    <table id ="t101" >
+        <tr>
+            <th>Unique ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>DOJ</th>
+            <th>Type of Room</th>
+
+        </tr>
+    {% for patient in patients %}
+    <tr>
+        <td>{{patient.puid}}</td>
+        <td>{{patient.pname}}</td>
+        <td>{{patient.page}}</td>
+        <td>{{patient.paddress}}</td>
+        <td>{{patient.pdate}}</td>
+        <td>{{patient.ptypeofbed}}</td>
+
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

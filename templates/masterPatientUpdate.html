@@ -1,0 +1,25 @@
+{% extends "afterlogin.html" %}
+
+{% block title %}
+HMS | UPDATE
+{% endblock %}
+
+{% block body%}
+{{message}}
+
+<hr class="d-sm-none"><br>
+<h3> Change in ID will not be reflected</h3>
+<form class="navbar-form navbar-left" action="{{url_for('masterPatientUpdate')}}" method ='POST'>
+    <div class="form-group">
+        <input type="text" name = "puid"   class="form-control" value="{{id}}">
+        <input type="text" name = "pname" class="form-control" value="{{name}}">
+        <input type="text" name = "page" class="form-control" value="{{age}}">
+        <input type="date" name = "pdate" class="form-control" value="{{date}}">
+        <input type="text" name = "ptypeofbed" class="form-control" value="{{typeofbed}}">
+        <input type="text" name = "paddress" class="form-control" value="{{address}}">
+        <input type="text" name = "pstate" class="form-control" value="{{state}}">
+        <input type="text" name = "pcity" class="form-control" value="{{city}}">
+    </div>
+    <button type="submit" class="btn btn-default">Update</button>
+</form>
+{% endblock %}

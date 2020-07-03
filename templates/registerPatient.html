@@ -1,0 +1,41 @@
+{% extends "afterlogin.html" %}
+
+{% block title %}
+ HMS| Patient Registration
+{% endblock %}
+
+{% block body %}
+    <h5>{{message}}</h5>
+    <hr>
+    <form action = "{{url_for('registerPatient')}}" method = 'POST' >
+       Patient SSN ID<input type = "text" name = "puid" required><br>
+       Patient Name<input type = "text" name = "pname" required><br>
+       Patient Age<input type = "text" name = "page" required><br>
+       Date of Admission<input type = "date" name = "pdate" required><br>
+       Type of bed<select name="ptypeofbed" required>
+                    <option value="single">single</option>
+                    <option value="semi">semi</option>
+                    <option value="general">general</option>  
+                  </select><br>
+       Address<input type = "text" name = "paddress" required><br>
+       state<select name = "pstate" required>
+           <option value="Telangana">Telangan</option>
+           <option value="Maharashtra">Maharashtra</option>
+           <option value="Karnataka">Karnataka</option>
+           <option value="Kerala">Kerela</option>
+           <option value="Tamil Nadu">Tamil Nadu</option>
+           <option value="Andhra Pradesh">AndhraPradesh</option>
+           <option value="Orissa">Orissa</option>
+       </select><br>
+       City<select name="pcity" required>
+           <option value="Hyderabad">Hyderabad</option>
+           <option value="Mumbai">Mumbai</option>
+           <option value="Bangalore">Bangalore</option>
+           <option value="Thiruvanantapuram">Thiruvanantapuram</option>
+           <option value="Chennai">Chennai</option>
+           <option value="Vishakapatnam">Vishakapatnam</option>
+           <option value="Bhubaneshwar">Bhubaneshwar</option>
+        </select><br>
+        <button name="Register">Register</button>
+    </form>
+{% endblock %}

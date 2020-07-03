@@ -1,0 +1,1 @@
+INSERT INTO users (user_id, user_password,user_name) VALUES (12345678,'rAj@5hekar','rajashekar');

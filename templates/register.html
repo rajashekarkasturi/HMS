@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    HMS|Register
+{% endblock %}
+
+{% block body %}
+<br><br><br>
+    <form action="{{url_for('register')}}" method = 'POST'>
+        <h1> Register</h1>
+        <p>Make sure to choose a password of atleast 8 Characters</p>
+        <p>All Fields are Required*</p>
+        <input type ="text" name ="user_id" value ="{{ user_id if user_id}}" placeholder="Unique ID" required><br> 
+        <input type="text" name="user_name" placeholder="Enter Name" value="{{ user_name if user_name }}" required><br>
+        <input type="password" name="user_password" placeholder="Password" required><br>
+        <input type="password" name="repassword" placeholder="Re-Enter Password" required><br>
+        <button name="register">Register</button>
+        {{ message }}
+    </form>
+    <p>Already Registered ?  Please Login!</p> 
+{% endblock %}
